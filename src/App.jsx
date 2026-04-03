@@ -244,29 +244,33 @@ const SEASONS = {
 };
 
 const PRODUCTS = [
-  // ── SOFT AUTUMN ──────────────────────────────────────────────
-  { id: 1,  brand: "Reformation",  name: "Sedona Midi Dress",           price: "$278", color: "#C4856A", colorName: "Terracotta",   season: "Soft Autumn", category: "Dresses" },
-  { id: 2,  brand: "Zara",         name: "Linen Wide Leg Trousers",     price: "$69",  color: "#9E8572", colorName: "Warm Taupe",    season: "Soft Autumn", category: "Trousers" },
-  { id: 3,  brand: "Mango",        name: "Flowing Wrap Blouse",         price: "$60",  color: "#8A8C5A", colorName: "Dusty Olive",   season: "Soft Autumn", category: "Tops" },
-  { id: 4,  brand: "Quince",       name: "Mongolian Cashmere Crewneck", price: "$50",  color: "#C49A6C", colorName: "Camel",         season: "Soft Autumn", category: "Knitwear" },
-  { id: 5,  brand: "Reformation",  name: "Amora Midi Skirt",            price: "$168", color: "#A85C3A", colorName: "Rust",          season: "Soft Autumn", category: "Skirts" },
-  { id: 6,  brand: "Sézane",       name: "Gaspard Relaxed Shirt",       price: "$115", color: "#8C9E85", colorName: "Sage Smoke",    season: "Soft Autumn", category: "Tops" },
-  { id: 7,  brand: "Madewell",     name: "(Re)sourced Cashmere Turtleneck", price: "$138", color: "#B0A090", colorName: "Mushroom", season: "Soft Autumn", category: "Knitwear" },
-  { id: 8,  brand: "Zara",         name: "Double Breasted Blazer",      price: "$129", color: "#6B4C3B", colorName: "Chocolate",     season: "Soft Autumn", category: "Outerwear" },
-  { id: 9,  brand: "Mango",        name: "Leather Effect Midi Skirt",   price: "$80",  color: "#B8963E", colorName: "Antique Gold",  season: "Soft Autumn", category: "Skirts" },
-  { id: 10, brand: "Quince",       name: "European Linen Trousers",     price: "$60",  color: "#6B7A45", colorName: "Moss",          season: "Soft Autumn", category: "Trousers" },
+  // ── SOFT AUTUMN — Real products ───────────────────────────────
+  { id: 1,  brand: "Sézane",  name: "Marcelo Tank Top",    price: "$55",  color: "#E8D8C0", colorName: "Cream Pointelle", season: "Soft Autumn", category: "Tops",    url: "https://www.sezane.com/us-en/product/marcelo-tank-tops/cream-pointelle#size-XXS" },
+  { id: 2,  brand: "Sézane",  name: "Marcelo Tank Top",    price: "$55",  color: "#8C9E85", colorName: "Sage",            season: "Soft Autumn", category: "Tops",    url: "https://www.sezane.com/us-en/product/marcelo-tank-tops/sage#size-XXS" },
+  { id: 3,  brand: "Sézane",  name: "Raquel Dress",        price: "$210", color: "#8BACC8", colorName: "Light Blue Denim", season: "Soft Autumn", category: "Dresses", url: "https://www.sezane.com/us-en/product/raquel-dress/light-blue#size-2" },
+  { id: 4,  brand: "Zara",    name: "Linen Belted Trench Jacket", price: "$89.90", color: "#8A8C5A", colorName: "Oil",    season: "Soft Autumn", category: "Outerwear", url: "https://www.zara.com/us/en/linen-blend-belted-trench-jacket-p02753364.html?v1=507738728&v2=2546081" },
 
-  // ── TRUE AUTUMN ──────────────────────────────────────────────
-  { id: 11, brand: "Reformation",  name: "Calista Slip Dress",          price: "$198", color: "#C4622D", colorName: "Burnt Orange",  season: "True Autumn", category: "Dresses" },
-  { id: 12, brand: "Zara",         name: "Corduroy Wide Leg Trousers",  price: "$79",  color: "#4A6741", colorName: "Forest Green",  season: "True Autumn", category: "Trousers" },
-  { id: 13, brand: "Madewell",     name: "Texture & Thread Midi Dress", price: "$148", color: "#D4A017", colorName: "Warm Gold",     season: "True Autumn", category: "Dresses" },
-  { id: 14, brand: "Sézane",       name: "Anatole Knit Cardigan",       price: "$155", color: "#C49A1A", colorName: "Mustard",       season: "True Autumn", category: "Knitwear" },
-  { id: 15, brand: "Zara",         name: "Suede Effect A-Line Skirt",   price: "$99",  color: "#A83C2A", colorName: "Brick Red",     season: "True Autumn", category: "Skirts" },
-  { id: 16, brand: "Mango",        name: "Knitted Polo Neck Sweater",   price: "$70",  color: "#8C6040", colorName: "Warm Brown",    season: "True Autumn", category: "Knitwear" },
-  { id: 17, brand: "Quince",       name: "Stretch Organic Cotton Blazer", price: "$120", color: "#5A6B30", colorName: "Deep Olive", season: "True Autumn", category: "Outerwear" },
-  { id: 18, brand: "Reformation",  name: "Hailey Midi Wrap Dress",      price: "$218", color: "#D46B2A", colorName: "Pumpkin",       season: "True Autumn", category: "Dresses" },
-  { id: 19, brand: "Zara",         name: "Faux Leather Biker Jacket",   price: "$149", color: "#6B3A2A", colorName: "Chocolate",     season: "True Autumn", category: "Outerwear" },
-  { id: 20, brand: "Madewell",     name: "Oversized Flannel Shirt",     price: "$78",  color: "#3D6B6B", colorName: "Deep Teal",     season: "True Autumn", category: "Tops" },
+  // ── TRUE AUTUMN — Real products ───────────────────────────────
+  { id: 5,  brand: "Sézane",  name: "Marcelo Tank Top",    price: "$55",  color: "#8B3A2A", colorName: "Mahogany",        season: "True Autumn", category: "Tops",    url: "https://www.sezane.com/us-en/product/marcelo-tank-tops/mahogany#size-XXS" },
+  { id: 6,  brand: "Sézane",  name: "Lua Dress",           price: "$240", color: "#6B3A2A", colorName: "Cream Crochet Chocolate", season: "True Autumn", category: "Dresses", url: "https://www.sezane.com/us-en/product/lua-dress/cream-crochet-chocolate-background#size-2" },
+
+  // ── SOFT SUMMER — Real products ───────────────────────────────
+  { id: 7,  brand: "Zara",    name: "Wide Linen Pants",    price: "$59.90", color: "#B8D0E8", colorName: "Light Blue",    season: "Soft Summer", category: "Bottoms", url: "https://www.zara.com/us/en/wide-leg-linen-pants-p07970734.html?v1=537259582&v2=2546081" },
+  { id: 8,  brand: "Zara",    name: "Linen Blend Safari Shirt", price: "$59.90", color: "#B8D0E8", colorName: "Light Blue", season: "Soft Summer", category: "Tops",  url: "https://www.zara.com/us/en/linen-safari-shirt-p08120734.html?v1=495689055&v2=2546081" },
+
+  // ── TRUE SUMMER — Real products ───────────────────────────────
+  { id: 9,  brand: "Sézane",  name: "Marcelo Tank Top",    price: "$55",  color: "#F0F0F8", colorName: "Ecru / Navy",     season: "True Summer", category: "Tops",    url: "https://www.sezane.com/us-en/product/marcelo-tank-tops/ecru-navy#size-XXS" },
+
+  // ── TRUE WINTER — Real products ───────────────────────────────
+  { id: 10, brand: "Zara",    name: "Linen Belted Trench Jacket", price: "$89.90", color: "#1A2A5A", colorName: "Navy Blue", season: "True Winter", category: "Outerwear", url: "https://www.zara.com/us/en/linen-blend-belted-trench-jacket-p02753364.html?v1=507738729&v2=2546081" },
+  { id: 11, brand: "Sézane",  name: "Raquel Dress",        price: "$210", color: "#2A3A5A", colorName: "Deep Blue Denim", season: "True Winter", category: "Dresses", url: "https://www.sezane.com/us-en/product/raquel-dress/deep-blue#size-2" },
+  { id: 12, brand: "Sézane",  name: "Raquel Dress",        price: "$210", color: "#1A1A2A", colorName: "Black",           season: "True Winter", category: "Dresses", url: "https://www.sezane.com/us-en/product/raquel-dress/black#size-2" },
+  { id: 13, brand: "Sézane",  name: "Marcelo Tank Top",    price: "$55",  color: "#F8F8FF", colorName: "Ecru",            season: "True Winter", category: "Tops",    url: "https://www.sezane.com/us-en/product/marcelo-tank-tops/ecru#size-XXS" },
+  { id: 14, brand: "Sézane",  name: "Marcelo Tank Top",    price: "$55",  color: "#1A1A2A", colorName: "Black",           season: "True Winter", category: "Tops",    url: "https://www.sezane.com/us-en/product/marcelo-tank-tops/black#size-XXS" },
+  { id: 15, brand: "Sézane",  name: "Marcelo Tank Top",    price: "$55",  color: "#1A1A2A", colorName: "Black / White",   season: "True Winter", category: "Tops",    url: "https://www.sezane.com/us-en/product/marcelo-tank-tops/black-white#size-XXS" },
+
+  // ── TRUE SPRING — Real products ───────────────────────────────
+  { id: 16, brand: "Sézane",  name: "Raquel Dress",        price: "$210", color: "#F0C8C0", colorName: "Rosa Corail Print", season: "True Spring", category: "Dresses", url: "https://www.sezane.com/us-en/product/raquel-dress/rosa-corail-print#size-2" },
 
   // ── SOFT SUMMER ──────────────────────────────────────────────
   { id: 21, brand: "Reformation",  name: "Valletta Midi Dress",         price: "$248", color: "#C49090", colorName: "Dusty Rose",    season: "Soft Summer", category: "Dresses" },
@@ -497,21 +501,23 @@ function ProductCard({ product }) {
           </div>
           <span style={{ fontSize: "13px", color: "#2C2418", fontFamily: "'DM Sans', sans-serif", fontWeight: 500 }}>{product.price}</span>
         </div>
-        <button style={{
-          width: "100%",
-          marginTop: "10px",
-          padding: "8px",
-          background: hovered ? product.color : "transparent",
-          border: `1px solid ${product.color}`,
-          color: hovered ? "white" : product.color,
-          fontSize: "9px",
-          letterSpacing: "0.18em",
-          textTransform: "uppercase",
-          cursor: "pointer",
-          transition: "all 0.25s ease",
-          fontFamily: "'DM Sans', sans-serif",
-          fontWeight: 600,
-        }}>Shop Now</button>
+        <a href={product.url || "#"} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+          <button style={{
+            width: "100%",
+            marginTop: "10px",
+            padding: "8px",
+            background: hovered ? product.color : "transparent",
+            border: `1px solid ${product.color}`,
+            color: hovered ? "white" : product.color,
+            fontSize: "9px",
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            cursor: "pointer",
+            transition: "all 0.25s ease",
+            fontFamily: "'DM Sans', sans-serif",
+            fontWeight: 600,
+          }}>Shop Now →</button>
+        </a>
       </div>
     </div>
   );
