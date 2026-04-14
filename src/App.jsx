@@ -245,24 +245,24 @@ const SEASONS = {
 
 const PRODUCTS = [
   // ── SOFT AUTUMN — Real products ───────────────────────────────
-  { id: 1,  brand: "Sézane",  name: "Marcelo Tank Top",    price: "$55",  color: "#E8D8C0", colorName: "Cream Pointelle", season: "Soft Autumn", category: "Tops",    url: "https://www.sezane.com/us-en/product/marcelo-tank-tops/cream-pointelle#size-XXS" },
+  { id: 1,  brand: "Sézane",  name: "Marcelo Tank Top",    price: "$55",  color: "#E8D8C0", colorName: "Cream Pointelle", season: "Soft Autumn", category: "Tops",    url: "https://www.sezane.com/us-en/product/marcelo-tank-tops/cream-pointelle#size-XXS", img: "https://res.cloudinary.com/dtsejhgx2/image/fetch/https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/kyabhocglmg0qr020fia.jpg" },
   { id: 2,  brand: "Sézane",  name: "Marcelo Tank Top",    price: "$55",  color: "#8C9E85", colorName: "Sage",            season: "Soft Autumn", category: "Tops",    url: "https://www.sezane.com/us-en/product/marcelo-tank-tops/sage#size-XXS" },
   { id: 3,  brand: "Sézane",  name: "Raquel Dress",        price: "$210", color: "#8BACC8", colorName: "Light Blue Denim", season: "Soft Autumn", category: "Dresses", url: "https://www.sezane.com/us-en/product/raquel-dress/light-blue#size-2" },
-  { id: 4,  brand: "Zara",    name: "Linen Belted Trench Jacket", price: "$89.90", color: "#8A8C5A", colorName: "Oil",    season: "Soft Autumn", category: "Outerwear", url: "https://www.zara.com/us/en/linen-blend-belted-trench-jacket-p02753364.html?v1=507738728&v2=2546081" },
+  { id: 4,  brand: "Zara",    name: "Linen Belted Trench Jacket", price: "$89.90", color: "#8A8C5A", colorName: "Oil", season: "Soft Autumn", category: "Outerwear", url: "https://www.zara.com/us/en/linen-blend-belted-trench-jacket-p02753364.html?v1=507738728&v2=2546081", img: "https://res.cloudinary.com/dtsejhgx2/image/fetch/https://static.zara.net/assets/public/8a5a/58a1/0031408cb609/4d338bf36bcf/02753364510-p/02753364510-p.jpg" },
 
   // ── TRUE AUTUMN — Real products ───────────────────────────────
   { id: 5,  brand: "Sézane",  name: "Marcelo Tank Top",    price: "$55",  color: "#8B3A2A", colorName: "Mahogany",        season: "True Autumn", category: "Tops",    url: "https://www.sezane.com/us-en/product/marcelo-tank-tops/mahogany#size-XXS" },
   { id: 6,  brand: "Sézane",  name: "Lua Dress",           price: "$240", color: "#6B3A2A", colorName: "Cream Crochet Chocolate", season: "True Autumn", category: "Dresses", url: "https://www.sezane.com/us-en/product/lua-dress/cream-crochet-chocolate-background#size-2" },
 
   // ── SOFT SUMMER — Real products ───────────────────────────────
-  { id: 7,  brand: "Zara",    name: "Wide Linen Pants",    price: "$59.90", color: "#B8D0E8", colorName: "Light Blue",    season: "Soft Summer", category: "Bottoms", url: "https://www.zara.com/us/en/wide-leg-linen-pants-p07970734.html?v1=537259582&v2=2546081" },
-  { id: 8,  brand: "Zara",    name: "Linen Blend Safari Shirt", price: "$59.90", color: "#B8D0E8", colorName: "Light Blue", season: "Soft Summer", category: "Tops",  url: "https://www.zara.com/us/en/linen-safari-shirt-p08120734.html?v1=495689055&v2=2546081" },
+  { id: 7,  brand: "Zara",    name: "Wide Linen Pants",    price: "$59.90", color: "#B8D0E8", colorName: "Light Blue", season: "Soft Summer", category: "Bottoms", url: "https://www.zara.com/us/en/wide-leg-linen-pants-p07970734.html?v1=537259582&v2=2546081", img: "https://res.cloudinary.com/dtsejhgx2/image/fetch/https://static.zara.net/assets/public/24d8/4308/84de4571922e/7e778be1aa7f/07970734406-p/07970734406-p.jpg" },
+  { id: 8,  brand: "Zara",    name: "Linen Blend Safari Shirt", price: "$59.90", color: "#B8D0E8", colorName: "Light Blue", season: "Soft Summer", category: "Tops", url: "https://www.zara.com/us/en/linen-safari-shirt-p08120734.html?v1=495689055&v2=2546081", img: "https://res.cloudinary.com/dtsejhgx2/image/fetch/https://static.zara.net/assets/public/cd85/0522/e5524c4cacee/435a7f7083d4/08120734406-p/08120734406-p.jpg" },
 
   // ── TRUE SUMMER — Real products ───────────────────────────────
-  { id: 9,  brand: "Sézane",  name: "Marcelo Tank Top",    price: "$55",  color: "#F0F0F8", colorName: "Ecru / Navy",     season: "True Summer", category: "Tops",    url: "https://www.sezane.com/us-en/product/marcelo-tank-tops/ecru-navy#size-XXS" },
+  { id: 9,  brand: "Sézane",  name: "Marcelo Tank Top",    price: "$55",  color: "#F0F0F8", colorName: "Ecru / Navy", season: "True Summer", category: "Tops", url: "https://www.sezane.com/us-en/product/marcelo-tank-tops/ecru-navy#size-XXS" },
 
   // ── TRUE WINTER — Real products ───────────────────────────────
-  { id: 10, brand: "Zara",    name: "Linen Belted Trench Jacket", price: "$89.90", color: "#1A2A5A", colorName: "Navy Blue", season: "True Winter", category: "Outerwear", url: "https://www.zara.com/us/en/linen-blend-belted-trench-jacket-p02753364.html?v1=507738729&v2=2546081" },
+  { id: 10, brand: "Zara",    name: "Linen Belted Trench Jacket", price: "$89.90", color: "#1A2A5A", colorName: "Navy Blue", season: "True Winter", category: "Outerwear", url: "https://www.zara.com/us/en/linen-blend-belted-trench-jacket-p02753364.html?v1=507738729&v2=2546081", img: "https://res.cloudinary.com/dtsejhgx2/image/fetch/https://static.zara.net/assets/public/6aab/24e0/58c34857bfc8/031036fe6e26/02753364401-p/02753364401-p.jpg" },
   { id: 11, brand: "Sézane",  name: "Raquel Dress",        price: "$210", color: "#2A3A5A", colorName: "Deep Blue Denim", season: "True Winter", category: "Dresses", url: "https://www.sezane.com/us-en/product/raquel-dress/deep-blue#size-2" },
   { id: 12, brand: "Sézane",  name: "Raquel Dress",        price: "$210", color: "#1A1A2A", colorName: "Black",           season: "True Winter", category: "Dresses", url: "https://www.sezane.com/us-en/product/raquel-dress/black#size-2" },
   { id: 13, brand: "Sézane",  name: "Marcelo Tank Top",    price: "$55",  color: "#F8F8FF", colorName: "Ecru",            season: "True Winter", category: "Tops",    url: "https://www.sezane.com/us-en/product/marcelo-tank-tops/ecru#size-XXS" },
@@ -454,17 +454,33 @@ function ProductCard({ product }) {
       }}
     >
       <div style={{
-        height: "200px",
+        height: "240px",
         background: `radial-gradient(ellipse at 60% 40%, ${product.color}18 0%, #F5F0E8 100%)`,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "16px",
+        padding: "0",
         position: "relative",
+        overflow: "hidden",
       }}>
-        <div style={{ width: "72px", height: "120px" }}>
-          <ClothingIllustration color={product.color} category={product.category} />
-        </div>
+        {product.img ? (
+          <img
+            src={product.img}
+            alt={product.name}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "top",
+              transition: "transform 0.4s ease",
+              transform: hovered ? "scale(1.04)" : "scale(1)",
+            }}
+          />
+        ) : (
+          <div style={{ width: "72px", height: "120px", padding: "16px" }}>
+            <ClothingIllustration color={product.color} category={product.category} />
+          </div>
+        )}
         <div style={{
           position: "absolute",
           top: "10px",
@@ -473,6 +489,7 @@ function ProductCard({ product }) {
           height: "8px",
           borderRadius: "50%",
           background: product.color,
+          boxShadow: "0 0 4px rgba(0,0,0,0.2)",
         }} />
       </div>
       <div style={{ padding: "14px 16px 16px" }}>
