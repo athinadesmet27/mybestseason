@@ -1,4 +1,10 @@
 import { useState, useEffect } from "react";
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(
+  "https://zmtkbjidhndumwfcumww.supabase.co",
+  "sb_publishable_XsNsRLQhLcdvqQLN7HZ5jQ_MtW1YtY7"
+);
 
 const SEASONS = {
   "Soft Autumn": {
@@ -242,156 +248,6 @@ const SEASONS = {
     avoid: ["Warm brown", "Muted tones", "Camel", "Dusty colours"],
   },
 };
-
-const PRODUCTS = [
-  // ── SOFT AUTUMN — Real products ───────────────────────────────
-  { id: 1,  brand: "Sézane",  name: "Marcelo Tank Top",    price: "$55",  color: "#E8D8C0", colorName: "Cream Pointelle", season: "Soft Autumn", category: "Tops",    url: "https://www.sezane.com/us-en/product/marcelo-tank-tops/cream-pointelle#size-XXS", img: "https://res.cloudinary.com/dtsejhgx2/image/fetch/https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/kyabhocglmg0qr020fia.jpg" },
-  { id: 2,  brand: "Sézane",  name: "Marcelo Tank Top",    price: "$55",  color: "#8C9E85", colorName: "Sage",            season: "Soft Autumn", category: "Tops",    url: "https://www.sezane.com/us-en/product/marcelo-tank-tops/sage#size-XXS" },
-  { id: 3,  brand: "Sézane",  name: "Raquel Dress",        price: "$210", color: "#8BACC8", colorName: "Light Blue Denim", season: "Soft Autumn", category: "Dresses", url: "https://www.sezane.com/us-en/product/raquel-dress/light-blue#size-2" },
-  { id: 4,  brand: "Zara",    name: "Linen Belted Trench Jacket", price: "$89.90", color: "#8A8C5A", colorName: "Oil", season: "Soft Autumn", category: "Outerwear", url: "https://www.zara.com/us/en/linen-blend-belted-trench-jacket-p02753364.html?v1=507738728&v2=2546081", img: "https://res.cloudinary.com/dtsejhgx2/image/fetch/https://static.zara.net/assets/public/8a5a/58a1/0031408cb609/4d338bf36bcf/02753364510-p/02753364510-p.jpg" },
-
-  // ── TRUE AUTUMN — Real products ───────────────────────────────
-  { id: 5,  brand: "Sézane",  name: "Marcelo Tank Top",    price: "$55",  color: "#8B3A2A", colorName: "Mahogany",        season: "True Autumn", category: "Tops",    url: "https://www.sezane.com/us-en/product/marcelo-tank-tops/mahogany#size-XXS" },
-  { id: 6,  brand: "Sézane",  name: "Lua Dress",           price: "$240", color: "#6B3A2A", colorName: "Cream Crochet Chocolate", season: "True Autumn", category: "Dresses", url: "https://www.sezane.com/us-en/product/lua-dress/cream-crochet-chocolate-background#size-2" },
-
-  // ── SOFT SUMMER — Real products ───────────────────────────────
-  { id: 7,  brand: "Zara",    name: "Wide Linen Pants",    price: "$59.90", color: "#B8D0E8", colorName: "Light Blue", season: "Soft Summer", category: "Bottoms", url: "https://www.zara.com/us/en/wide-leg-linen-pants-p07970734.html?v1=537259582&v2=2546081", img: "https://res.cloudinary.com/dtsejhgx2/image/fetch/https://static.zara.net/assets/public/24d8/4308/84de4571922e/7e778be1aa7f/07970734406-p/07970734406-p.jpg" },
-  { id: 8,  brand: "Zara",    name: "Linen Blend Safari Shirt", price: "$59.90", color: "#B8D0E8", colorName: "Light Blue", season: "Soft Summer", category: "Tops", url: "https://www.zara.com/us/en/linen-safari-shirt-p08120734.html?v1=495689055&v2=2546081", img: "https://res.cloudinary.com/dtsejhgx2/image/fetch/https://static.zara.net/assets/public/cd85/0522/e5524c4cacee/435a7f7083d4/08120734406-p/08120734406-p.jpg" },
-
-  // ── TRUE SUMMER — Real products ───────────────────────────────
-  { id: 9,  brand: "Sézane",  name: "Marcelo Tank Top",    price: "$55",  color: "#F0F0F8", colorName: "Ecru / Navy", season: "True Summer", category: "Tops", url: "https://www.sezane.com/us-en/product/marcelo-tank-tops/ecru-navy#size-XXS" },
-
-  // ── TRUE WINTER — Real products ───────────────────────────────
-  { id: 10, brand: "Zara",    name: "Linen Belted Trench Jacket", price: "$89.90", color: "#1A2A5A", colorName: "Navy Blue", season: "True Winter", category: "Outerwear", url: "https://www.zara.com/us/en/linen-blend-belted-trench-jacket-p02753364.html?v1=507738729&v2=2546081", img: "https://res.cloudinary.com/dtsejhgx2/image/fetch/https://static.zara.net/assets/public/6aab/24e0/58c34857bfc8/031036fe6e26/02753364401-p/02753364401-p.jpg" },
-  { id: 11, brand: "Sézane",  name: "Raquel Dress",        price: "$210", color: "#2A3A5A", colorName: "Deep Blue Denim", season: "True Winter", category: "Dresses", url: "https://www.sezane.com/us-en/product/raquel-dress/deep-blue#size-2" },
-  { id: 12, brand: "Sézane",  name: "Raquel Dress",        price: "$210", color: "#1A1A2A", colorName: "Black",           season: "True Winter", category: "Dresses", url: "https://www.sezane.com/us-en/product/raquel-dress/black#size-2" },
-  { id: 13, brand: "Sézane",  name: "Marcelo Tank Top",    price: "$55",  color: "#F8F8FF", colorName: "Ecru",            season: "True Winter", category: "Tops",    url: "https://www.sezane.com/us-en/product/marcelo-tank-tops/ecru#size-XXS" },
-  { id: 14, brand: "Sézane",  name: "Marcelo Tank Top",    price: "$55",  color: "#1A1A2A", colorName: "Black",           season: "True Winter", category: "Tops",    url: "https://www.sezane.com/us-en/product/marcelo-tank-tops/black#size-XXS" },
-  { id: 15, brand: "Sézane",  name: "Marcelo Tank Top",    price: "$55",  color: "#1A1A2A", colorName: "Black / White",   season: "True Winter", category: "Tops",    url: "https://www.sezane.com/us-en/product/marcelo-tank-tops/black-white#size-XXS" },
-
-  // ── TRUE SPRING — Real products ───────────────────────────────
-  { id: 16, brand: "Sézane",  name: "Raquel Dress",        price: "$210", color: "#F0C8C0", colorName: "Rosa Corail Print", season: "True Spring", category: "Dresses", url: "https://www.sezane.com/us-en/product/raquel-dress/rosa-corail-print#size-2" },
-
-  // ── SOFT SUMMER ──────────────────────────────────────────────
-  { id: 21, brand: "Reformation",  name: "Valletta Midi Dress",         price: "$248", color: "#C49090", colorName: "Dusty Rose",    season: "Soft Summer", category: "Dresses" },
-  { id: 22, brand: "Zara",         name: "Fine Knit V-Neck Cardigan",   price: "$65",  color: "#8AAABA", colorName: "Powder Blue",   season: "Soft Summer", category: "Knitwear" },
-  { id: 23, brand: "Sézane",       name: "Prune Floral Midi Dress",     price: "$195", color: "#9A90AA", colorName: "Lavender Grey", season: "Soft Summer", category: "Dresses" },
-  { id: 24, brand: "Mango",        name: "Fluid Straight Trousers",     price: "$70",  color: "#5A6A8A", colorName: "Soft Navy",     season: "Soft Summer", category: "Trousers" },
-  { id: 25, brand: "Madewell",     name: "Lightspun Tiered Midi Skirt", price: "$88",  color: "#B08090", colorName: "Dusty Mauve",   season: "Soft Summer", category: "Skirts" },
-  { id: 26, brand: "Quince",       name: "Washable Silk Blouse",        price: "$80",  color: "#D4A8A8", colorName: "Blush",         season: "Soft Summer", category: "Tops" },
-  { id: 27, brand: "Zara",         name: "Linen Blend Blazer",          price: "$119", color: "#6A9090", colorName: "Muted Teal",    season: "Soft Summer", category: "Outerwear" },
-  { id: 28, brand: "Reformation",  name: "Cynthia High Rise Trouser",   price: "$188", color: "#9A9090", colorName: "Cool Taupe",    season: "Soft Summer", category: "Trousers" },
-  { id: 29, brand: "Mango",        name: "Draped Asymmetric Blouse",    price: "$55",  color: "#A898B8", colorName: "Grey Lilac",    season: "Soft Summer", category: "Tops" },
-  { id: 30, brand: "Sézane",       name: "Nino Straight Leg Jeans",     price: "$145", color: "#8A6878", colorName: "Soft Plum",     season: "Soft Summer", category: "Trousers" },
-
-  // ── TRUE SUMMER ──────────────────────────────────────────────
-  { id: 31, brand: "Reformation",  name: "Caspian Wrap Dress",          price: "$228", color: "#C46878", colorName: "Rose Pink",     season: "True Summer", category: "Dresses" },
-  { id: 32, brand: "Zara",         name: "Satin Finish Midi Skirt",     price: "$89",  color: "#A84060", colorName: "Raspberry",     season: "True Summer", category: "Skirts" },
-  { id: 33, brand: "Madewell",     name: "Whisper Cotton Crewneck Tee", price: "$35",  color: "#6898C4", colorName: "Sky Blue",      season: "True Summer", category: "Tops" },
-  { id: 34, brand: "Mango",        name: "Flowing Midi Dress",          price: "$90",  color: "#7878C4", colorName: "Periwinkle",    season: "True Summer", category: "Dresses" },
-  { id: 35, brand: "Sézane",       name: "Beatrice Knit Cardigan",      price: "$165", color: "#A868A8", colorName: "Orchid",        season: "True Summer", category: "Knitwear" },
-  { id: 36, brand: "Quince",       name: "100% Silk Midi Slip Dress",   price: "$100", color: "#E0A8B8", colorName: "Icy Pink",      season: "True Summer", category: "Dresses" },
-  { id: 37, brand: "Zara",         name: "Structured Shoulder Blazer",  price: "$139", color: "#3A5A88", colorName: "Soft Navy",     season: "True Summer", category: "Outerwear" },
-  { id: 38, brand: "Reformation",  name: "Remy Wide Leg Trouser",       price: "$178", color: "#507898", colorName: "Steel Blue",    season: "True Summer", category: "Trousers" },
-  { id: 39, brand: "Mango",        name: "Ribbed Knit Midi Skirt",      price: "$60",  color: "#D45870", colorName: "Watermelon",    season: "True Summer", category: "Skirts" },
-  { id: 40, brand: "Madewell",     name: "Emmett Wide Leg Crop Pant",   price: "$118", color: "#9878C4", colorName: "Lavender",      season: "True Summer", category: "Trousers" },
-
-  // ── TRUE WINTER ──────────────────────────────────────────────
-  { id: 41, brand: "Reformation",  name: "Camille Wrap Midi Dress",     price: "$268", color: "#1A1A2A", colorName: "True Black",    season: "True Winter", category: "Dresses" },
-  { id: 42, brand: "Zara",         name: "Tailored Double Breast Blazer", price: "$139", color: "#7A1A3A", colorName: "Burgundy",  season: "True Winter", category: "Outerwear" },
-  { id: 43, brand: "Madewell",     name: "Cali Demi-Boot Jean",         price: "$148", color: "#1A2A5A", colorName: "Deep Navy",     season: "True Winter", category: "Trousers" },
-  { id: 44, brand: "Sézane",       name: "Adele Silk Blouse",           price: "$185", color: "#F8F8FF", colorName: "Pure White",    season: "True Winter", category: "Tops" },
-  { id: 45, brand: "Quince",       name: "Italian Wool Turtleneck",     price: "$60",  color: "#3A3A4A", colorName: "Charcoal",      season: "True Winter", category: "Knitwear" },
-  { id: 46, brand: "Zara",         name: "Faux Leather Flare Trousers", price: "$89",  color: "#1A1A2A", colorName: "True Black",    season: "True Winter", category: "Trousers" },
-  { id: 47, brand: "Mango",        name: "Structured Wool Coat",        price: "$220", color: "#1A2A5A", colorName: "Deep Navy",     season: "True Winter", category: "Outerwear" },
-  { id: 48, brand: "Reformation",  name: "Rosetta Satin Midi Skirt",    price: "$158", color: "#C01A2A", colorName: "True Red",      season: "True Winter", category: "Skirts" },
-  { id: 49, brand: "Quince",       name: "Stretch Ponte Blazer",        price: "$90",  color: "#1A6A4A", colorName: "Emerald",       season: "True Winter", category: "Outerwear" },
-  { id: 50, brand: "Madewell",     name: "Oversized Turtleneck Sweater", price: "$98", color: "#9AB8D0", colorName: "Ice Blue",     season: "True Winter", category: "Knitwear" },
-
-  // ── TRUE SPRING ──────────────────────────────────────────────
-  { id: 51, brand: "Reformation",  name: "Lyra Wrap Sundress",          price: "$218", color: "#E87858", colorName: "Coral",         season: "True Spring", category: "Dresses" },
-  { id: 52, brand: "Zara",         name: "Printed Linen Midi Dress",    price: "$79",  color: "#E8A878", colorName: "Warm Peach",    season: "True Spring", category: "Dresses" },
-  { id: 53, brand: "Mango",        name: "Flowy Printed Blouse",        price: "$50",  color: "#78C850", colorName: "Apple Green",   season: "True Spring", category: "Tops" },
-  { id: 54, brand: "Madewell",     name: "Linen Blend Wide Leg Pant",   price: "$108", color: "#40B8B0", colorName: "Turquoise",     season: "True Spring", category: "Trousers" },
-  { id: 55, brand: "Sézane",       name: "Elia Floral Midi Skirt",      price: "$145", color: "#E8C840", colorName: "Golden Yellow", season: "True Spring", category: "Skirts" },
-  { id: 56, brand: "Quince",       name: "Stretch Organic Sundress",    price: "$60",  color: "#E88878", colorName: "Coral Pink",    season: "True Spring", category: "Dresses" },
-  { id: 57, brand: "Zara",         name: "Knitted Cotton Cardigan",     price: "$59",  color: "#60C8D0", colorName: "Robin Egg",     season: "True Spring", category: "Knitwear" },
-  { id: 58, brand: "Reformation",  name: "Nadia High Rise Trouser",     price: "$188", color: "#D4B070", colorName: "Light Camel",   season: "True Spring", category: "Trousers" },
-  { id: 59, brand: "Mango",        name: "Ruffled Hem Midi Dress",      price: "$85",  color: "#E8A820", colorName: "Warm Gold",     season: "True Spring", category: "Dresses" },
-  { id: 60, brand: "Madewell",     name: "Garment-Dyed Poplin Shirt",   price: "$72",  color: "#F0E0C0", colorName: "Warm Ivory",    season: "True Spring", category: "Tops" },
-
-  // ── SOFT SPRING ──────────────────────────────────────────────
-  { id: 61, brand: "Reformation",  name: "Isabeau Midi Dress",          price: "$228", color: "#E8B898", colorName: "Warm Peach",    season: "Soft Spring", category: "Dresses" },
-  { id: 62, brand: "Zara",         name: "Flowy Printed Midi Skirt",    price: "$55",  color: "#F0C8B0", colorName: "Light Peach",   season: "Soft Spring", category: "Skirts" },
-  { id: 63, brand: "Quince",       name: "Washable Silk Cami",          price: "$50",  color: "#F0E090", colorName: "Butter Yellow", season: "Soft Spring", category: "Tops" },
-  { id: 64, brand: "Mango",        name: "Linen Blend Straight Trousers", price: "$65", color: "#A8E0C8", colorName: "Light Mint",  season: "Soft Spring", category: "Trousers" },
-  { id: 65, brand: "Sézane",       name: "Margot Floral Blouse",        price: "$125", color: "#F0A898", colorName: "Soft Coral",    season: "Soft Spring", category: "Tops" },
-  { id: 66, brand: "Madewell",     name: "Signature Poplin Shirtdress", price: "$128", color: "#C8A870", colorName: "Light Camel",   season: "Soft Spring", category: "Dresses" },
-  { id: 67, brand: "Reformation",  name: "Harriet Knit Mini Dress",     price: "$198", color: "#D0B8D8", colorName: "Warm Lilac",    season: "Soft Spring", category: "Dresses" },
-  { id: 68, brand: "Zara",         name: "Soft Touch Knit Cardigan",    price: "$55",  color: "#F0D8B0", colorName: "Champagne",     season: "Soft Spring", category: "Knitwear" },
-
-  // ── LIGHT SPRING ─────────────────────────────────────────────
-  { id: 69, brand: "Reformation",  name: "Lisbon Floral Midi Dress",    price: "$218", color: "#F0C8B0", colorName: "Light Peach",   season: "Light Spring", category: "Dresses" },
-  { id: 70, brand: "Zara",         name: "Flowing Pleated Midi Skirt",  price: "$49",  color: "#F0B8B0", colorName: "Warm Blush",    season: "Light Spring", category: "Skirts" },
-  { id: 71, brand: "Mango",        name: "Printed Wrap Dress",          price: "$75",  color: "#A8D8E0", colorName: "Pale Aqua",     season: "Light Spring", category: "Dresses" },
-  { id: 72, brand: "Quince",       name: "European Linen Blouse",       price: "$50",  color: "#F0D8B0", colorName: "Champagne",     season: "Light Spring", category: "Tops" },
-  { id: 73, brand: "Madewell",     name: "Tie-Front Midi Dress",        price: "$118", color: "#F8F0E8", colorName: "Warm White",    season: "Light Spring", category: "Dresses" },
-  { id: 74, brand: "Sézane",       name: "Victoire Broderie Blouse",    price: "$135", color: "#F0C0C0", colorName: "Petal Pink",    season: "Light Spring", category: "Tops" },
-  { id: 75, brand: "Zara",         name: "Linen Relaxed Blazer",        price: "$99",  color: "#E8D098", colorName: "Light Gold",    season: "Light Spring", category: "Outerwear" },
-  { id: 76, brand: "Reformation",  name: "Brigitte High Rise Short",    price: "$98",  color: "#B0E0D0", colorName: "Sky Mint",      season: "Light Spring", category: "Bottoms" },
-
-  // ── LIGHT SUMMER ─────────────────────────────────────────────
-  { id: 77, brand: "Reformation",  name: "Elina Midi Dress",            price: "$238", color: "#F0C8D0", colorName: "Icy Pink",      season: "Light Summer", category: "Dresses" },
-  { id: 78, brand: "Zara",         name: "Fluid Straight Trousers",     price: "$65",  color: "#D8C8E8", colorName: "Pale Lavender", season: "Light Summer", category: "Trousers" },
-  { id: 79, brand: "Quince",       name: "Washable Crepe Blouse",       price: "$60",  color: "#B8D0E8", colorName: "Soft Blue",     season: "Light Summer", category: "Tops" },
-  { id: 80, brand: "Mango",        name: "Flowy V-neck Midi Dress",     price: "$80",  color: "#E8C0C8", colorName: "Soft Rose",     season: "Light Summer", category: "Dresses" },
-  { id: 81, brand: "Sézane",       name: "Camille Broderie Midi Skirt", price: "$155", color: "#C8C8E8", colorName: "Pale Periwinkle", season: "Light Summer", category: "Skirts" },
-  { id: 82, brand: "Madewell",     name: "Lightspun Open-Back Dress",   price: "$108", color: "#C8E0F0", colorName: "Ice Blue",      season: "Light Summer", category: "Dresses" },
-  { id: 83, brand: "Zara",         name: "Ribbed Knit Cardigan",        price: "$55",  color: "#D8D8E0", colorName: "Light Grey",    season: "Light Summer", category: "Knitwear" },
-  { id: 84, brand: "Reformation",  name: "Basia Wide Leg Trouser",      price: "$178", color: "#C0E0D8", colorName: "Pale Mint",     season: "Light Summer", category: "Trousers" },
-
-  // ── DEEP AUTUMN ──────────────────────────────────────────────
-  { id: 85, brand: "Reformation",  name: "Helena Velvet Midi Dress",    price: "$288", color: "#6A1A1A", colorName: "Earthy Burgundy", season: "Deep Autumn", category: "Dresses" },
-  { id: 86, brand: "Zara",         name: "Faux Suede Wide Leg Trousers", price: "$89", color: "#3A1A0A", colorName: "Dark Chocolate", season: "Deep Autumn", category: "Trousers" },
-  { id: 87, brand: "Mango",        name: "Oversize Wool Blend Coat",    price: "$240", color: "#4A2A1A", colorName: "Coffee",         season: "Deep Autumn", category: "Outerwear" },
-  { id: 88, brand: "Quince",       name: "Mongolian Cashmere Turtleneck", price: "$50", color: "#2A1A0A", colorName: "Espresso",      season: "Deep Autumn", category: "Knitwear" },
-  { id: 89, brand: "Sézane",       name: "Arno Wool Cardigan",          price: "$175", color: "#8A6A0A", colorName: "Dark Gold",      season: "Deep Autumn", category: "Knitwear" },
-  { id: 90, brand: "Madewell",     name: "Corduroy Straight Leg Jean",  price: "$128", color: "#3A4A1A", colorName: "Deep Olive",     season: "Deep Autumn", category: "Trousers" },
-  { id: 91, brand: "Zara",         name: "Leather Effect Midi Skirt",   price: "$109", color: "#7A2A0A", colorName: "Deep Rust",      season: "Deep Autumn", category: "Skirts" },
-  { id: 92, brand: "Reformation",  name: "Thea Oversized Blazer",       price: "$248", color: "#3A4A2A", colorName: "Dark Moss",      season: "Deep Autumn", category: "Outerwear" },
-
-  // ── DEEP WINTER ──────────────────────────────────────────────
-  { id: 93, brand: "Reformation",  name: "Midnight Satin Midi Dress",   price: "$268", color: "#0A1A3A", colorName: "Midnight Navy",  season: "Deep Winter", category: "Dresses" },
-  { id: 94, brand: "Zara",         name: "Structured Wool Coat",        price: "#2A2A3A", colorName: "Charcoal", price: "$199", color: "#2A2A3A", season: "Deep Winter", category: "Outerwear" },
-  { id: 95, brand: "Mango",        name: "Velvet Blazer",               price: "$160", color: "#3A0A5A", colorName: "Deep Plum",      season: "Deep Winter", category: "Outerwear" },
-  { id: 96, brand: "Quince",       name: "Italian Cashmere V-Neck",     price: "$50",  color: "#0A1A6A", colorName: "Midnight Blue",  season: "Deep Winter", category: "Knitwear" },
-  { id: 97, brand: "Sézane",       name: "Manon Velvet Midi Skirt",     price: "$165", color: "#5A0A28", colorName: "Deep Burgundy",  season: "Deep Winter", category: "Skirts" },
-  { id: 98, brand: "Madewell",     name: "Skinny Flare Jean",           price: "$138", color: "#0A0A1A", colorName: "True Black",     season: "Deep Winter", category: "Trousers" },
-  { id: 99, brand: "Zara",         name: "Faux Leather Straight Trousers", price: "$89", color: "#0A2A1A", colorName: "Forest Black", season: "Deep Winter", category: "Trousers" },
-  { id: 100, brand: "Reformation", name: "Izzy Power Shoulder Dress",   price: "$248", color: "#8A0A5A", colorName: "Deep Fuchsia",   season: "Deep Winter", category: "Dresses" },
-
-  // ── TRUE WINTER ──────────────────────────────────────────────
-  { id: 41, brand: "Reformation",  name: "Camille Wrap Midi Dress",     price: "$268", color: "#1A1A2A", colorName: "True Black",    season: "True Winter", category: "Dresses" },
-  { id: 42, brand: "Zara",         name: "Tailored Double Breast Blazer", price: "$139", color: "#7A1A3A", colorName: "Burgundy",  season: "True Winter", category: "Outerwear" },
-  { id: 43, brand: "Madewell",     name: "Cali Demi-Boot Jean",         price: "$148", color: "#1A2A5A", colorName: "Deep Navy",     season: "True Winter", category: "Trousers" },
-  { id: 44, brand: "Sézane",       name: "Adele Silk Blouse",           price: "$185", color: "#F8F8FF", colorName: "Pure White",    season: "True Winter", category: "Tops" },
-  { id: 45, brand: "Quince",       name: "Italian Wool Turtleneck",     price: "$60",  color: "#3A3A4A", colorName: "Charcoal",      season: "True Winter", category: "Knitwear" },
-  { id: 46, brand: "Zara",         name: "Faux Leather Flare Trousers", price: "$89",  color: "#1A1A2A", colorName: "True Black",    season: "True Winter", category: "Trousers" },
-  { id: 47, brand: "Mango",        name: "Structured Wool Coat",        price: "$220", color: "#1A2A5A", colorName: "Deep Navy",     season: "True Winter", category: "Outerwear" },
-  { id: 48, brand: "Reformation",  name: "Rosetta Satin Midi Skirt",    price: "$158", color: "#C01A2A", colorName: "True Red",      season: "True Winter", category: "Skirts" },
-  { id: 49, brand: "Quince",       name: "Stretch Ponte Blazer",        price: "$90",  color: "#1A6A4A", colorName: "Emerald",       season: "True Winter", category: "Outerwear" },
-  { id: 50, brand: "Madewell",     name: "Oversized Turtleneck Sweater", price: "$98", color: "#9AB8D0", colorName: "Ice Blue",     season: "True Winter", category: "Knitwear" },
-
-  // ── BRIGHT WINTER ────────────────────────────────────────────
-  { id: 101, brand: "Reformation", name: "Vesta Mini Dress",            price: "$218", color: "#D00A7A", colorName: "Vivid Fuchsia",  season: "Bright Winter", category: "Dresses" },
-  { id: 102, brand: "Zara",        name: "Electric Knit Midi Dress",    price: "$79",  color: "#0A50D0", colorName: "Electric Blue",  season: "Bright Winter", category: "Dresses" },
-  { id: 103, brand: "Mango",       name: "Structured Blazer",           price: "$140", color: "#0A0A1A", colorName: "True Black",     season: "Bright Winter", category: "Outerwear" },
-  { id: 104, brand: "Quince",      name: "Stretch Ponte Trouser",       price: "$60",  color: "#F8F8FF", colorName: "Pure White",     season: "Bright Winter", category: "Trousers" },
-  { id: 105, brand: "Sézane",      name: "Colette Silk Blouse",         price: "$175", color: "#6A0AD0", colorName: "Royal Purple",   season: "Bright Winter", category: "Tops" },
-  { id: 106, brand: "Madewell",    name: "Emerald Midi Slip Skirt",     price: "$88",  color: "#0A9A5A", colorName: "Bright Emerald", season: "Bright Winter", category: "Skirts" },
-  { id: 107, brand: "Zara",        name: "Faux Leather Tuxedo Blazer",  price: "$129", color: "#0A0A1A", colorName: "True Black",     season: "Bright Winter", category: "Outerwear" },
-  { id: 108, brand: "Reformation", name: "Briella Knit Mini Dress",     price: "$198", color: "#E00A8A", colorName: "Hot Pink",       season: "Bright Winter", category: "Dresses" },
-];
 
 const CATEGORIES = ["All", "Dresses", "Tops", "Trousers", "Skirts", "Knitwear", "Outerwear", "Bottoms"];
 const BRANDS = ["All Brands", "Zara", "Reformation", "Madewell", "Mango", "Quince", "Sézane"];
@@ -648,13 +504,42 @@ export default function App() {
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [seasonMenuOpen, setSeasonMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [products, setProducts] = useState([]);
+  const [loadingProducts, setLoadingProducts] = useState(true);
 
   useEffect(() => { setMounted(true); }, []);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      const { data, error } = await supabase
+        .from("Product")
+        .select("*");
+      if (error) {
+        console.error("Error fetching products:", error);
+      } else {
+        const normalised = data.map(p => ({
+          id: p.id,
+          brand: p.brand,
+          name: p.name,
+          price: p.price ? `$${p.price}` : "",
+          color: p.color_hex || "#C4856A",
+          colorName: p.color_name,
+          season: p.season,
+          category: p.category,
+          url: p.product_url || "",
+          img: p.image_url || "",
+        }));
+        setProducts(normalised);
+      }
+      setLoadingProducts(false);
+    }
+    fetchProducts();
+  }, []);
 
   const season = SEASONS[selectedSeason];
   const accent = season.accent;
 
-  const filtered = PRODUCTS.filter(p => {
+  const filtered = products.filter(p => {
     if (p.season !== selectedSeason) return false;
     if (selectedCategory !== "All" && p.category !== selectedCategory) return false;
     if (selectedBrand !== "All Brands" && p.brand !== selectedBrand) return false;
@@ -896,14 +781,20 @@ export default function App() {
       <section style={{ padding: "40px 48px", maxWidth: "1200px", margin: "0 auto" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "24px" }}>
           <p style={{ fontSize: "11px", color: "#B8AFA0", letterSpacing: "0.15em", textTransform: "uppercase" }}>
-            {filtered.length} piece{filtered.length !== 1 ? "s" : ""} in your palette
+            {loadingProducts ? "Loading…" : `${filtered.length} piece${filtered.length !== 1 ? "s" : ""} in your palette`}
           </p>
           <p style={{ fontSize: "11px", color: "#B8AFA0", fontStyle: "italic", fontFamily: "'Cormorant Garamond', serif", fontSize: "13px" }}>
             All products curated for {selectedSeason}
           </p>
         </div>
 
-        {filtered.length === 0 ? (
+        {loadingProducts ? (
+          <div style={{ textAlign: "center", padding: "80px 0", color: "#B8AFA0" }}>
+            <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "22px", fontStyle: "italic", color: "#9A8E80" }}>
+              Curating your palette…
+            </p>
+          </div>
+        ) : filtered.length === 0 ? (
           <div style={{
             textAlign: "center",
             padding: "80px 0",
