@@ -1,4 +1,10 @@
 import { useState, useEffect } from "react";
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(
+  "https://zmtkbjidhndumwfcumww.supabase.co",
+  "sb_publishable_XsNsRLQhLcdvqQLN7HZ5jQ_MtW1YtY7"
+);
 
 const SEASONS = {
   "Soft Autumn": {
@@ -648,13 +654,42 @@ export default function App() {
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [seasonMenuOpen, setSeasonMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [products, setProducts] = useState([]);
+  const [loadingProducts, setLoadingProducts] = useState(true);
 
   useEffect(() => { setMounted(true); }, []);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      const { data, error } = await supabase
+        .from("Product")
+        .select("*");
+      if (error) {
+        console.error("Error fetching products:", error);
+      } else {
+        const normalised = data.map(p => ({
+          id: p.id,
+          brand: p.brand,
+          name: p.name,
+          price: p.price ? `$${p.price}` : "",
+          color: p.color_hex || "#C4856A",
+          colorName: p.color_name,
+          season: p.season,
+          category: p.category,
+          url: p.product_url || "",
+          img: p.image_url || "",
+        }));
+        setProducts(normalised);
+      }
+      setLoadingProducts(false);
+    }
+    fetchProducts();
+  }, []);
 
   const season = SEASONS[selectedSeason];
   const accent = season.accent;
 
-  const filtered = PRODUCTS.filter(p => {
+  const filtered = products.filter(p => {
     if (p.season !== selectedSeason) return false;
     if (selectedCategory !== "All" && p.category !== selectedCategory) return false;
     if (selectedBrand !== "All Brands" && p.brand !== selectedBrand) return false;
@@ -692,6 +727,9 @@ export default function App() {
           .season-menu { display: none !important; }
           .season-menu-open { display: block !important; }
           .mobile-season-toggle { display: flex !important; }
+          .filters-section { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
+          .filter-row { overflow-x: auto !important; flex-wrap: nowrap !important; width: 100% !important; padding-bottom: 4px !important; -webkit-overflow-scrolling: touch !important; }
+          .filter-row::-webkit-scrollbar { display: none !important; }
         }
         @media (max-width: 480px) {
           .product-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
@@ -820,7 +858,7 @@ export default function App() {
                       <span style={{ fontSize: "9px", color: "#9A8E80", textAlign: "center", lineHeight: 1.2 }}>{c.name}</span>
                     </div>
                   ))}
-                  <div style={{ gridColumn: "1/-1", borderTop: "1px solid #EDE8E0", paddingTop: "10px", marginTop: "4px" }}>
+                  <div style={{ display: "flex", gap: "6px", alignItems: "center", overflowX: "auto", flexWrap: "nowrap", WebkitOverflowScrolling: "touch", paddingBottom: "4px" }}>
                     <span style={{ fontSize: "9px", color: "#B8AFA0", letterSpacing: "0.12em", textTransform: "uppercase" }}>Avoid: </span>
                     <span style={{ fontSize: "10px", color: "#9A8E80" }}>{season.avoid.join(" · ")}</span>
                   </div>
@@ -877,8 +915,8 @@ export default function App() {
         flexWrap: "wrap",
         background: "white",
       }}>
-        <div style={{ display: "flex", gap: "6px", alignItems: "center", flexWrap: "wrap" }}>
-          <span style={{ fontSize: "9px", color: "#B8AFA0", letterSpacing: "0.2em", textTransform: "uppercase", marginRight: "4px" }}>Category</span>
+        <div className="filter-row" style={{ display: "flex", gap: "6px", alignItems: "center", flexWrap: "wrap" }}>
+          <span style={{ fontSize: "9px", color: "#B8AFA0", letterSpacing: "0.2em", textTransform: "uppercase", marginRight: "4px", flexShrink: 0 }}>Category</span>
           {CATEGORIES.map(c => (
             <button key={c} onClick={() => setSelectedCategory(c)} style={{
               padding: "5px 12px",
@@ -895,10 +933,10 @@ export default function App() {
             }}>{c}</button>
           ))}
         </div>
-        <div style={{ display: "flex", gap: "6px", alignItems: "center" }}>
-          <span style={{ fontSize: "9px", color: "#B8AFA0", letterSpacing: "0.2em", textTransform: "uppercase", marginRight: "4px" }}>Brand</span>
+        <div className="filter-row" style={{ display: "flex", gap: "6px", alignItems: "center", overflowX: "auto", flexWrap: "nowrap", WebkitOverflowScrolling: "touch", paddingBottom: "4px" }}>
+          <span style={{ fontSize: "9px", color: "#B8AFA0", letterSpacing: "0.2em", textTransform: "uppercase", marginRight: "4px", flexShrink: 0 }}>Brand</span>
           {BRANDS.map(b => (
-            <button key={b} onClick={() => setSelectedBrand(b)} style={{
+            <button key={b} onClick={() => setSelectedBrand(b)} style={{ flexShrink: 0,
               padding: "5px 12px",
               border: `1px solid ${selectedBrand === b ? accent : "#EDE8E0"}`,
               background: selectedBrand === b ? `${accent}12` : "transparent",
@@ -910,6 +948,7 @@ export default function App() {
               transition: "all 0.2s",
               fontFamily: "'DM Sans', sans-serif",
               fontWeight: selectedBrand === b ? 600 : 400,
+              flexShrink: 0,
             }}>{b}</button>
           ))}
         </div>
@@ -919,14 +958,20 @@ export default function App() {
       <section className="products-section" style={{ padding: "40px 48px", maxWidth: "1200px", margin: "0 auto" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "24px" }}>
           <p style={{ fontSize: "11px", color: "#B8AFA0", letterSpacing: "0.15em", textTransform: "uppercase" }}>
-            {filtered.length} piece{filtered.length !== 1 ? "s" : ""} in your palette
+            {loadingProducts ? "Loading…" : `${filtered.length} piece${filtered.length !== 1 ? "s" : ""} in your palette`}
           </p>
           <p style={{ fontSize: "11px", color: "#B8AFA0", fontStyle: "italic", fontFamily: "'Cormorant Garamond', serif", fontSize: "13px" }}>
             All products curated for {selectedSeason}
           </p>
         </div>
 
-        {filtered.length === 0 ? (
+        {loadingProducts ? (
+          <div style={{ textAlign: "center", padding: "80px 0", color: "#B8AFA0" }}>
+            <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "22px", fontStyle: "italic", color: "#9A8E80" }}>
+              Curating your palette…
+            </p>
+          </div>
+        ) : filtered.length === 0 ? (
           <div style={{
             textAlign: "center",
             padding: "80px 0",
