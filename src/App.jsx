@@ -530,14 +530,41 @@ function WelcomePage({ onSeasonSelected }) {
     setLoading(true);
     setError(null);
     try {
+      // Detect actual image type from base64 header
+      const mediaType = image.startsWith("data:image/png") ? "image/png"
+        : image.startsWith("data:image/webp") ? "image/webp"
+        : image.startsWith("data:image/gif") ? "image/gif"
+        : "image/jpeg";
+
       const response = await fetch("/api/analyse", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ imageBase64, mediaType: "image/jpeg" })
+        body: JSON.stringify({ imageBase64, mediaType })
       });
+
+      if (!response.ok) {
+        const errData = await response.json().catch(() => ({}));
+        setError(`API error ${response.status}: ${errData.error || "Please try again."}`);
+        setLoading(false);
+        return;
+      }
+
       const data = await response.json();
+
+      if (data.error) {
+        setError(`Error: ${data.error}`);
+        setLoading(false);
+        return;
+      }
+
       const text = data.content?.[0]?.text || "";
-      const clean = text.replace(/\`\`\`json|\`\`\`/g, "").trim();
+      if (!text) {
+        setError("No response from analysis. Please try again.");
+        setLoading(false);
+        return;
+      }
+
+      const clean = text.replace(/```json|```/g, "").trim();
       const parsed = JSON.parse(clean);
       if (SEASONS_LIST.includes(parsed.season)) {
         setResult(parsed);
@@ -545,7 +572,7 @@ function WelcomePage({ onSeasonSelected }) {
         setError("Could not determine a clear season. Please try a clearer photo.");
       }
     } catch (e) {
-      setError("Something went wrong. Please try again.");
+      setError(`Something went wrong: ${e.message}`);
     }
     setLoading(false);
   };
