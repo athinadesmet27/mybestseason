@@ -9,7 +9,7 @@ const supabase = createClient(
 const SEASONS = {
   "Soft Autumn": {
     tagline: "Muted, warm & earthy",
-    description: "Your palette is nature at its most poetic — dried botanicals, morning fog, the warmth of terracotta in soft light. You glow in colours that are hushed, golden and deeply grounded.",
+    description: "Your palette is nature at its most poetic — dried botanicals, morning fog, the warmth of terracotta in soft light. You glow in colors that are hushed, golden and deeply grounded.",
     palette: [
       { name: "Terracotta", hex: "#C4856A" },
       { name: "Warm Taupe", hex: "#9E8572" },
@@ -25,11 +25,11 @@ const SEASONS = {
       { name: "Antique Gold", hex: "#B8963E" },
     ],
     accent: "#C4856A",
-    avoid: ["Bright white", "Cool grey", "Neon", "Icy pink"],
+    avoid: ["Bright white", "Cool gray", "Neon", "Icy pink"],
   },
   "True Autumn": {
     tagline: "Rich, warm & saturated",
-    description: "You carry the richness of amber light through autumn leaves. Your colours are bold and earthy — deep forest greens, burnt oranges, warm golds that make your eyes come alive.",
+    description: "You carry the richness of amber light through autumn leaves. Your colors are bold and earthy — deep forest greens, burnt oranges, warm golds that make your eyes come alive.",
     palette: [
       { name: "Burnt Orange", hex: "#C4622D" },
       { name: "Forest Green", hex: "#4A6741" },
@@ -49,18 +49,18 @@ const SEASONS = {
   },
   "Soft Summer": {
     tagline: "Cool, muted & delicate",
-    description: "You are watercolour and morning haze. Your palette is dusty, cool and romantic — blush roses, powder blues, soft mauves that create an effortlessly refined look.",
+    description: "You are watercolor and morning haze. Your palette is dusty, cool and romantic — blush roses, powder blues, soft mauves that create an effortlessly refined look.",
     palette: [
       { name: "Dusty Rose", hex: "#C49090" },
       { name: "Powder Blue", hex: "#8AAABA" },
-      { name: "Lavender Grey", hex: "#9A90AA" },
+      { name: "Lavender Gray", hex: "#9A90AA" },
       { name: "Cool Taupe", hex: "#9A9090" },
       { name: "Dusty Mauve", hex: "#B08090" },
       { name: "Soft Navy", hex: "#5A6A8A" },
       { name: "Cool Sage", hex: "#8A9A8A" },
       { name: "Blush", hex: "#D4A8A8" },
       { name: "Muted Teal", hex: "#6A9090" },
-      { name: "Grey Lilac", hex: "#A898B8" },
+      { name: "Gray Lilac", hex: "#A898B8" },
       { name: "Cool Cream", hex: "#E0D8D0" },
       { name: "Soft Plum", hex: "#8A6878" },
     ],
@@ -89,7 +89,7 @@ const SEASONS = {
   },
   "Soft Spring": {
     tagline: "Warm, light & delicate",
-    description: "You carry the softness of early spring — warm peaches, light corals and golden creams that give you a fresh, natural radiance without overwhelming your gentle colouring.",
+    description: "You carry the softness of early spring — warm peaches, light corals and golden creams that give you a fresh, natural radiance without overwhelming your gentle coloring.",
     palette: [
       { name: "Warm Peach", hex: "#E8B898" },
       { name: "Light Coral", hex: "#E89878" },
@@ -105,7 +105,7 @@ const SEASONS = {
       { name: "Warm Sky", hex: "#88B8D0" },
     ],
     accent: "#E8B898",
-    avoid: ["Cool grey", "Stark black", "Icy tones", "Muted earthy"],
+    avoid: ["Cool gray", "Stark black", "Icy tones", "Muted earthy"],
   },
   "True Spring": {
     tagline: "Warm, clear & fresh",
@@ -125,11 +125,11 @@ const SEASONS = {
       { name: "Robin Egg", hex: "#60C8D0" },
     ],
     accent: "#E87858",
-    avoid: ["Cool pink", "Icy tones", "Muted earthy", "Cool grey"],
+    avoid: ["Cool pink", "Icy tones", "Muted earthy", "Cool gray"],
   },
   "Light Spring": {
     tagline: "Warm, very light & bright",
-    description: "You are sunshine and fresh blossoms. Your palette is the lightest and brightest of all — delicate warm pinks, soft yellows and clear aquas that enhance your luminous, light colouring.",
+    description: "You are sunshine and fresh blossoms. Your palette is the lightest and brightest of all — delicate warm pinks, soft yellows and clear aquas that enhance your luminous, light coloring.",
     palette: [
       { name: "Light Peach", hex: "#F0C8B0" },
       { name: "Warm Blush", hex: "#F0B8B0" },
@@ -145,11 +145,11 @@ const SEASONS = {
       { name: "Sky Mint", hex: "#B0E0D0" },
     ],
     accent: "#F0C8B0",
-    avoid: ["Dark colours", "Cool tones", "Stark black", "Neon"],
+    avoid: ["Dark colors", "Cool tones", "Stark black", "Neon"],
   },
   "Light Summer": {
     tagline: "Cool, very light & soft",
-    description: "Your palette is the lightest of the cool seasons — icy pinks, pale lavenders and soft blues that create a polished, ethereal look perfectly suited to your delicate, cool colouring.",
+    description: "Your palette is the lightest of the cool seasons — icy pinks, pale lavenders and soft blues that create a polished, ethereal look perfectly suited to your delicate, cool coloring.",
     palette: [
       { name: "Icy Pink", hex: "#F0C8D0" },
       { name: "Pale Lavender", hex: "#D8C8E8" },
@@ -162,14 +162,14 @@ const SEASONS = {
       { name: "Ice Blue", hex: "#C8E0F0" },
       { name: "Soft Rose", hex: "#E8C0C8" },
       { name: "Pale Mint", hex: "#C0E0D8" },
-      { name: "Light Grey", hex: "#D8D8E0" },
+      { name: "Light Gray", hex: "#D8D8E0" },
     ],
     accent: "#B8D0E8",
     avoid: ["Warm tones", "Orange", "Warm gold", "Dark earthy"],
   },
   "True Winter": {
     tagline: "Cool, dark & high contrast",
-    description: "You command attention. True black, pure white, icy cool tones — your palette is dramatic and precise. High contrast colours that make your features striking and unforgettable.",
+    description: "You command attention. True black, pure white, icy cool tones — your palette is dramatic and precise. High contrast colors that make your features striking and unforgettable.",
     palette: [
       { name: "True Black", hex: "#1A1A2A" },
       { name: "Pure White", hex: "#F8F8FF" },
@@ -189,7 +189,7 @@ const SEASONS = {
   },
   "Deep Winter": {
     tagline: "Cool, very dark & intense",
-    description: "Rich, deep and powerful — your palette carries the depth of midnight. Dark jewel tones and bold contrasts that bring out the intensity and drama of your striking colouring.",
+    description: "Rich, deep and powerful — your palette carries the depth of midnight. Dark jewel tones and bold contrasts that bring out the intensity and drama of your striking coloring.",
     palette: [
       { name: "Midnight Navy", hex: "#0A1A3A" },
       { name: "Deep Burgundy", hex: "#5A0A28" },
@@ -209,7 +209,7 @@ const SEASONS = {
   },
   "Deep Autumn": {
     tagline: "Warm, very dark & rich",
-    description: "You carry the richest, deepest warmth — dark chocolate, deep olive, earthy burgundy. Your palette is intense and grounding, bringing out the depth and richness of your colouring.",
+    description: "You carry the richest, deepest warmth — dark chocolate, deep olive, earthy burgundy. Your palette is intense and grounding, bringing out the depth and richness of your coloring.",
     palette: [
       { name: "Dark Chocolate", hex: "#3A1A0A" },
       { name: "Deep Olive", hex: "#3A4A1A" },
@@ -245,7 +245,7 @@ const SEASONS = {
       { name: "Ice Blue", hex: "#8AC8E8" },
     ],
     accent: "#0A50D0",
-    avoid: ["Warm brown", "Muted tones", "Camel", "Dusty colours"],
+    avoid: ["Warm brown", "Muted tones", "Camel", "Dusty colors"],
   },
 };
 
@@ -497,6 +497,258 @@ function EmailCapture({ season, accentColor }) {
   );
 }
 
+// ─── Welcome / AI Season Analyser ────────────────────────────────────────────
+function WelcomePage({ onSeasonSelected }) {
+  const [image, setImage] = useState(null);
+  const [imageBase64, setImageBase64] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState(null);
+  const [error, setError] = useState(null);
+  const [dragOver, setDragOver] = useState(false);
+
+  const SEASONS_LIST = [
+    "Soft Autumn", "True Autumn", "Deep Autumn",
+    "Soft Summer", "True Summer", "Light Summer",
+    "True Winter", "Deep Winter", "Bright Winter",
+    "Soft Spring", "True Spring", "Light Spring"
+  ];
+
+  const handleFile = (file) => {
+    if (!file || !file.type.startsWith("image/")) return;
+    setResult(null);
+    setError(null);
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      setImage(e.target.result);
+      setImageBase64(e.target.result.split(",")[1]);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const analysePhoto = async () => {
+    if (!imageBase64) return;
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: "claude-sonnet-4-20250514",
+          max_tokens: 1000,
+          messages: [{
+            role: "user",
+            content: [
+              {
+                type: "image",
+                source: { type: "base64", media_type: "image/jpeg", data: imageBase64 }
+              },
+              {
+                type: "text",
+                text: `You are an expert seasonal color analyst. Analyse this person's natural coloring — their skin tone undertone (warm/cool/neutral), hair color, and eye color — and determine their color season from the 12-season system.
+
+The 12 seasons are: Soft Autumn, True Autumn, Deep Autumn, Soft Summer, True Summer, Light Summer, True Winter, Deep Winter, Bright Winter, Soft Spring, True Spring, Light Spring.
+
+Respond ONLY with valid JSON in this exact format, no other text:
+{
+  "season": "Season Name",
+  "confidence": "high/medium/low",
+  "explanation": "2-3 sentence explanation of why this season suits them, mentioning their specific coloring",
+  "keyTraits": ["trait 1", "trait 2", "trait 3"]
+}`
+              }
+            ]
+          }]
+        })
+      });
+      const data = await response.json();
+      const text = data.content?.[0]?.text || "";
+      const clean = text.replace(/\`\`\`json|\`\`\`/g, "").trim();
+      const parsed = JSON.parse(clean);
+      if (SEASONS_LIST.includes(parsed.season)) {
+        setResult(parsed);
+      } else {
+        setError("Could not determine a clear season. Please try a clearer photo.");
+      }
+    } catch (e) {
+      setError("Something went wrong. Please try again.");
+    }
+    setLoading(false);
+  };
+
+  const seasonAccents = {
+    "Soft Autumn": "#C4856A", "True Autumn": "#C4622D", "Deep Autumn": "#8B4513",
+    "Soft Summer": "#8AAABA", "True Summer": "#C46878", "Light Summer": "#B8A8C8",
+    "True Winter": "#2A3A5A", "Deep Winter": "#1A2A4A", "Bright Winter": "#1A50D0",
+    "Soft Spring": "#E8B898", "True Spring": "#E87858", "Light Spring": "#F0A8B8"
+  };
+
+  return (
+    <div style={{ minHeight: "100vh", background: "#FAF7F2", fontFamily: "'DM Sans', sans-serif" }}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500&display=swap');
+        .upload-zone { transition: all 0.2s ease; }
+        .upload-zone:hover { border-color: #C4856A !important; background: #FDF9F5 !important; }
+        .analyse-btn { transition: all 0.2s ease; }
+        .analyse-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+        .shop-btn { transition: all 0.2s ease; }
+        .shop-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+        @media (max-width: 768px) {
+          .welcome-inner { padding: 40px 20px !important; }
+          .welcome-title { font-size: 48px !important; }
+        }
+      `}</style>
+
+      {/* Header */}
+      <header style={{ padding: "24px 48px", borderBottom: "1px solid #EDE8E0", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "22px", fontWeight: 500, color: "#2C2418", letterSpacing: "0.02em" }}>
+          My Best Season
+        </div>
+        <button onClick={() => onSeasonSelected(null)} style={{ fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase", color: "#9A8E80", background: "none", border: "none", cursor: "pointer" }}>
+          Browse All Seasons →
+        </button>
+      </header>
+
+      <div className="welcome-inner" style={{ maxWidth: "680px", margin: "0 auto", padding: "80px 24px 60px" }}>
+
+        {/* Hero text */}
+        <p style={{ fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C4856A", marginBottom: "20px" }}>
+          — Discover Your Color Season
+        </p>
+        <h1 className="welcome-title" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "64px", fontWeight: 400, color: "#2C2418", lineHeight: 1.05, marginBottom: "24px", letterSpacing: "-0.01em" }}>
+          What season<br /><em>are you?</em>
+        </h1>
+        <p style={{ fontSize: "16px", color: "#7A7060", lineHeight: 1.7, marginBottom: "48px", fontWeight: 300, maxWidth: "520px" }}>
+          Upload a photo and our AI will analyse your natural coloring — skin tone, hair, and eyes — to reveal your personal color season and unlock a curated wardrobe built just for you.
+        </p>
+
+        {/* Upload zone */}
+        {!image ? (
+          <div
+            className="upload-zone"
+            onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
+            onDragLeave={() => setDragOver(false)}
+            onDrop={(e) => { e.preventDefault(); setDragOver(false); handleFile(e.dataTransfer.files[0]); }}
+            onClick={() => document.getElementById("photo-input").click()}
+            style={{
+              border: `2px dashed ${dragOver ? "#C4856A" : "#D8D0C8"}`,
+              borderRadius: "4px",
+              padding: "64px 40px",
+              textAlign: "center",
+              cursor: "pointer",
+              background: dragOver ? "#FDF9F5" : "transparent",
+              marginBottom: "32px"
+            }}
+          >
+            <input id="photo-input" type="file" accept="image/*" style={{ display: "none" }} onChange={(e) => handleFile(e.target.files[0])} />
+            <div style={{ fontSize: "32px", marginBottom: "16px" }}>📸</div>
+            <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "22px", fontStyle: "italic", color: "#2C2418", marginBottom: "8px" }}>
+              Upload your photo
+            </p>
+            <p style={{ fontSize: "12px", color: "#B8AFA0", letterSpacing: "0.1em", textTransform: "uppercase" }}>
+              Drag & drop or click to browse
+            </p>
+            <p style={{ fontSize: "11px", color: "#C8C0B8", marginTop: "12px" }}>
+              Best results: natural lighting, no heavy filter, face clearly visible
+            </p>
+          </div>
+        ) : (
+          <div style={{ marginBottom: "32px" }}>
+            <div style={{ position: "relative", display: "inline-block", width: "100%" }}>
+              <img src={image} alt="Your photo" style={{ width: "100%", maxHeight: "400px", objectFit: "cover", borderRadius: "4px", display: "block" }} />
+              <button
+                onClick={() => { setImage(null); setImageBase64(null); setResult(null); }}
+                style={{ position: "absolute", top: "12px", right: "12px", background: "rgba(0,0,0,0.5)", color: "white", border: "none", borderRadius: "50%", width: "32px", height: "32px", cursor: "pointer", fontSize: "14px" }}
+              >×</button>
+            </div>
+          </div>
+        )}
+
+        {/* Analyse button */}
+        {image && !result && (
+          <button
+            className="analyse-btn"
+            onClick={analysePhoto}
+            disabled={loading}
+            style={{
+              width: "100%",
+              padding: "18px",
+              background: "#2C2418",
+              color: "#FAF7F2",
+              border: "none",
+              borderRadius: "2px",
+              fontSize: "11px",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              cursor: loading ? "not-allowed" : "pointer",
+              marginBottom: "16px",
+              opacity: loading ? 0.7 : 1
+            }}
+          >
+            {loading ? "Analysing your coloring…" : "Discover My Season →"}
+          </button>
+        )}
+
+        {error && (
+          <p style={{ color: "#C4622D", fontSize: "13px", textAlign: "center", marginBottom: "16px" }}>{error}</p>
+        )}
+
+        {/* Result */}
+        {result && (
+          <div style={{ border: "1px solid #EDE8E0", borderRadius: "4px", padding: "40px", background: "white", marginBottom: "24px" }}>
+            <p style={{ fontSize: "10px", letterSpacing: "0.2em", textTransform: "uppercase", color: seasonAccents[result.season] || "#C4856A", marginBottom: "12px" }}>
+              — Your Color Season
+            </p>
+            <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "48px", fontWeight: 400, color: "#2C2418", marginBottom: "16px", lineHeight: 1.1 }}>
+              {result.season}
+            </h2>
+            <p style={{ fontSize: "15px", color: "#7A7060", lineHeight: 1.7, marginBottom: "24px", fontWeight: 300 }}>
+              {result.explanation}
+            </p>
+            <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "32px" }}>
+              {result.keyTraits.map(t => (
+                <span key={t} style={{ fontSize: "11px", padding: "6px 14px", border: `1px solid ${seasonAccents[result.season] || "#C4856A"}`, color: seasonAccents[result.season] || "#C4856A", borderRadius: "2px", letterSpacing: "0.08em" }}>
+                  {t}
+                </span>
+              ))}
+            </div>
+            <p style={{ fontSize: "11px", color: "#B8AFA0", marginBottom: "24px", letterSpacing: "0.05em" }}>
+              Confidence: {result.confidence}
+            </p>
+            <button
+              className="shop-btn"
+              onClick={() => onSeasonSelected(result.season)}
+              style={{
+                width: "100%",
+                padding: "18px",
+                background: seasonAccents[result.season] || "#C4856A",
+                color: "white",
+                border: "none",
+                borderRadius: "2px",
+                fontSize: "11px",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                cursor: "pointer"
+              }}
+            >
+              Shop My {result.season} Palette →
+            </button>
+          </div>
+        )}
+
+        {/* Manual season select */}
+        <p style={{ textAlign: "center", fontSize: "12px", color: "#B8AFA0", marginTop: "24px" }}>
+          Already know your season?{" "}
+          <span onClick={() => onSeasonSelected(null)} style={{ color: "#7A7060", cursor: "pointer", textDecoration: "underline" }}>
+            Browse all seasons
+          </span>
+        </p>
+      </div>
+    </div>
+  );
+}
+
+
 export default function App() {
   const [selectedSeason, setSelectedSeason] = useState("Soft Autumn");
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -506,6 +758,8 @@ export default function App() {
   const [mounted, setMounted] = useState(false);
   const [products, setProducts] = useState([]);
   const [loadingProducts, setLoadingProducts] = useState(true);
+  const [showWelcome, setShowWelcome] = useState(true);
+  const [welcomeSeason, setWelcomeSeason] = useState(null);
 
   useEffect(() => { setMounted(true); }, []);
 
@@ -641,7 +895,7 @@ export default function App() {
               <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "20px" }}>
                 <div style={{ width: "32px", height: "1px", background: accent }} />
                 <span style={{ fontSize: "10px", letterSpacing: "0.25em", color: accent, textTransform: "uppercase", fontWeight: 600 }}>
-                  Your colour season
+                  Your color season
                 </span>
               </div>
               <h1 style={{
