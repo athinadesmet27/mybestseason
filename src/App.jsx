@@ -808,6 +808,15 @@ export default function App() {
     setPaletteOpen(false);
   };
 
+  if (showWelcome) {
+    return (
+      <WelcomePage onSeasonSelected={(season) => {
+        if (season) setSelectedSeason(season);
+        setShowWelcome(false);
+      }} />
+    );
+  }
+
   return (
     <div style={{ minHeight: "100vh", background: "#FAF7F2", color: "#2C2418", fontFamily: "'DM Sans', sans-serif" }}>
       <style>{`
