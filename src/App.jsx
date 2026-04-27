@@ -550,16 +550,17 @@ function WelcomePage({ onSeasonSelected }) {
       }
 
       const data = await response.json();
+      console.log("API response:", JSON.stringify(data));
 
       if (data.error) {
-        setError(`Error: ${data.error}`);
+        setError(`Error: ${typeof data.error === "object" ? JSON.stringify(data.error) : data.error}`);
         setLoading(false);
         return;
       }
 
       const text = data.content?.[0]?.text || "";
       if (!text) {
-        setError("No response from analysis. Please try again.");
+        setError(`No text in response. Raw: ${JSON.stringify(data).slice(0, 200)}`);
         setLoading(false);
         return;
       }
@@ -569,7 +570,7 @@ function WelcomePage({ onSeasonSelected }) {
       if (SEASONS_LIST.includes(parsed.season)) {
         setResult(parsed);
       } else {
-        setError("Could not determine a clear season. Please try a clearer photo.");
+        setError(`Season not recognised: ${parsed.season}`);
       }
     } catch (e) {
       setError(`Something went wrong: ${e.message}`);
