@@ -865,7 +865,7 @@ export default function App() {
         backdropFilter: "blur(8px)",
         zIndex: 100,
       }}>
-        <div style={{ display: "flex", alignItems: "baseline", gap: "10px" }}>
+        <div onClick={() => setShowWelcome(true)} style={{ display: "flex", alignItems: "baseline", gap: "10px", cursor: "pointer" }}>
           <span style={{
             fontFamily: "'Cormorant Garamond', serif",
             fontSize: "22px",
